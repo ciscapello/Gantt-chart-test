@@ -4,26 +4,144 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/finkit.css" />
+    <link rel="stylesheet" href="css/finkit-icons.css" />
     <link
-      href="https://fonts.cdnfonts.com/css/euclid-circular-a"
+      href="https://fonts.cdnfonts.com/css/euclid-circular-a?styles=100037,100034,100036,100039"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <title>Document</title>
+    <title>FinKit</title>
   </head>
   <body>
     <section class="main">
       <div class="container">
-        <nav class="lang">
-          <div class="lang_item lang_item-active">Ru</div>
-          <div class="lang-item">En</div>
+        <nav class="lang_menu">
+          <button class="lang_item lang_item_active">Ru</button>
+          <button class="lang_item">En</button>
         </nav>
-        <h1>asdadads</h1>
-        <p>asdasdasd</p>
+        <h1 class="main_title">
+          Fin <span class="main_title_highlight"> Kit</span>
+        </h1>
+        <p class="main_description">
+          Гибкая мобильная платформа для быстрой реализации инвестиционных
+          сервисов.
+        </p>
+        <button class="button">Заказать демо</button>
+        <div class="main_features">
+          <div class="feature main_feature">
+            <p class="feature_descr">Удобный пользовательский интерфейс</p>
+            <span class="icon_box">
+              <i class="icon-interface"></i>
+            </span>
+          </div>
+          <div class="feature main_feature">
+            <p class="feature_descr">Панель администратора для ведения учета</p>
+            <span class="icon_box">
+              <i class="icon-activity"></i>
+            </span>
+          </div>
+          <div class="feature main_feature">
+            <p class="feature_descr">Простая и быстрая интеграция</p>
+            <span class="icon_box">
+              <i class="icon-integration"></i>
+            </span>
+          </div>
+          <div class="feature main_feature">
+            <p class="feature_descr">Гибкая масштабируемая система</p>
+            <span class="icon_box">
+              <i class="icon-setting"></i>
+            </span>
+          </div>
+        </div>
       </div>
     </section>
-    <i class="icon-interface"></i>
-    <i class="icon-loyalty"></i>
+    <section class="products">
+      <div class="container">
+        <h2 class="products_title">
+          Наши
+          <span class="highlight">ключевые продукты</span> для инвестиций
+        </h2>
+        <div class="products_cards">
+          <div class="products_card">
+            <div class="products_card_column">
+              <h3 class="products_card_title">Платформа для автоследования</h3>
+              <p class="products_card_descr">
+                Копирование стратегий в автономном режиме
+              </p>
+            </div>
+            <img
+              class="products_card_image"
+              src="./img/strategies.png"
+              alt="phone with strategies"
+            />
+          </div>
+          <div class="products_card">
+            <div class="products_card_column">
+              <h3 class="products_card_title">Платформа для робо-эдвайзинга</h3>
+              <p class="products_card_descr">
+                Персонализированный подбор стратегий исходя из заданных
+                параметров
+              </p>
+            </div>
+            <img
+              class="products_card_image"
+              src="./img/robo-advising.png"
+              alt="phone with strategies"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="banks">
+      <div class="container">
+        <div class="banks_wrapper">
+          <div class="banks_column">
+            <h2 class="banks_title">
+              <span class="highlight">Представляем ценность</span> для броĸера и
+              банĸа
+            </h2>
+            <p class="banks_descr">
+              Мы помогаем броĸерам и банĸам запустить собственное мобильное
+              приложение для инвестиций в ĸоротĸие сроĸи и с эĸономией бюджета
+            </p>
+            <button class="button">Заказать демо</button>
+          </div>
+          <div class="banks_column banks_features">
+            <div class="feature banks_feature">
+              <p class="feature_descr banks_feature_descr">
+                Эĸономим время и деньги на запусĸ digital сервисов
+              </p>
+              <span class="icon_box">
+                <i class="icon-money"></i>
+              </span>
+            </div>
+            <div class="feature banks_feature">
+              <p class="feature_descr banks_feature_descr">
+                Создаем канал привлечения новых клиентов
+              </p>
+              <span class="icon_box">
+                <i class="icon-channel"></i>
+              </span>
+            </div>
+            <div class="feature banks_feature">
+              <p class="feature_descr banks_feature_descr">
+                Помогаем увеличить выручку путем запуска нового продукта
+              </p>
+              <span class="icon_box">
+                <i class="icon-proceeds"></i>
+              </span>
+            </div>
+            <div class="feature banks_feature">
+              <p class="feature_descr banks_feature_descr">
+                Повышаем лояльность действующих клиентов
+              </p>
+              <span class="icon_box">
+                <i class="icon-loyalty"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>

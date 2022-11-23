@@ -2,15 +2,14 @@ import React, { useEffect } from "react";
 import { Table } from "./components/table";
 import styled from "styled-components";
 import { useAppDispatch, useAppSelector } from "./hooks";
-import { getTasks } from "./store";
+import { getTasks, selectTitle } from "./store";
 import Download from "./assets/svgs/Download";
 
 function App() {
   const dispatch = useAppDispatch();
-  const { title } = useAppSelector((state) => state.tasks);
+  const title = useAppSelector(selectTitle);
   useEffect(() => {
     dispatch(getTasks());
-    // dispatch(getDates());
   }, [dispatch]);
 
   return (

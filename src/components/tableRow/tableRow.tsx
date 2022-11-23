@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
 import { useAppSelector } from "../../hooks";
+import { selectDates } from "../../store";
 import { Task } from "../../types";
 import IconBox from "../iconBox/iconBox";
 import StatusBar from "../statusBar/statusBar";
@@ -10,7 +11,8 @@ interface TableRowProps {
 }
 
 export default function TableRow({ task }: TableRowProps) {
-  const { dates } = useAppSelector((state) => state.tasks);
+  const dates = useAppSelector(selectDates);
+
   const ref = useRef<HTMLTableDataCellElement>(null);
   let offset, height;
   if (ref.current?.clientHeight && ref.current.clientWidth) {

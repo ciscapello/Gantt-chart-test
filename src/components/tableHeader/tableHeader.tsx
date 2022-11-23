@@ -5,16 +5,9 @@ import { dateToStringArr, weekHandler } from "../../utils";
 
 export default function TableHeader() {
   const { dates: daysArray, minDate } = useAppSelector((state) => state.tasks);
-  console.log(
-    new Date(
-      new Date(daysArray[0]).setDate(new Date(daysArray[0]).getDate() + 7)
-    )
-  );
 
   const weekArr = weekHandler(new Date(minDate!));
-  console.log(weekArr);
   const weeks = dateToStringArr(weekArr);
-  console.log("weeks", weeks);
 
   return (
     <thead>

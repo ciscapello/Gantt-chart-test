@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
 import { useAppSelector } from "../../hooks";
+import { selectMinDate } from "../../store";
 import { Task } from "../../types";
 import { handleColorType, dateHandler } from "../../utils";
 
@@ -12,7 +13,7 @@ interface StatusBarProps {
 
 export default function StatusBar({ offset, height, task }: StatusBarProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const { minDate } = useAppSelector((state) => state.tasks);
+  const minDate = useAppSelector(selectMinDate);
 
   const { startDiffDays, endDiffDays } = dateHandler(
     task!.period_start,

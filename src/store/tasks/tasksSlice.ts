@@ -29,7 +29,6 @@ export const tasksSlice = createSlice({
       let daysArray: number[] = [];
       const start = new Date(new Date(state.minDate!).setDate(1));
       const startItarableDate = new Date(new Date(state.minDate!).setDate(1));
-      console.log(start);
       const end = new Date(startItarableDate.setDate(start.getDate() + 60));
       if (start) {
         while (start <= end) {
@@ -52,11 +51,9 @@ export const tasksSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getTasks.fulfilled, (state, action) => {
       const { chart } = action.payload;
-      console.log(state.tasks);
       state.tasks = sortObject(chart);
       const minDate = chart.period_start;
       state.minDate = new Date(minDate).setDate(1);
-      console.log(action.payload);
       state.title = `${action.payload.project} / ${action.payload.period}`;
     });
   },

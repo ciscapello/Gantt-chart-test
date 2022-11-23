@@ -17,7 +17,6 @@ export const dateHandler = (
 };
 
 export const weekHandler = (startDate: Date) => {
-  console.log(new Date(startDate));
   let a = 0;
   let dateArr: number[] = [];
   while (a < 9) {
@@ -31,10 +30,6 @@ export const weekHandler = (startDate: Date) => {
 export const dateToStringArr = (dates: number[]) => {
   let result: { startWeek: string; endWeek: string }[] = [];
   dates.forEach((elem, ind, arr) => {
-    const date = Number(elem);
-
-    console.log(date);
-    console.log(arr[ind + 1]);
     if (isNaN(arr[ind + 1])) return;
     result.push({
       startWeek: `${new Date(elem).getDate()} ${new Date(elem).toLocaleString(

@@ -3,23 +3,21 @@ import TableHeader from "../tableHeader/tableHeader";
 import styled from "styled-components";
 import TableRow from "../tableRow/tableRow";
 import { useAppSelector } from "../../hooks";
+import { selectAllTasks } from "../../store";
 
 export default function Table() {
-  const { tasks } = useAppSelector((state) => state.tasks);
+  const tasks = useAppSelector(selectAllTasks);
   return (
     <StyledTable>
       <TableHeader />
       <tbody>
         <TableRow />
         {tasks.map((task) => (
-          <TableRow task={task} />
+          <TableRow key={task.id} task={task} />
         ))}
-        <TableRow />
-        <TableRow />
-        <TableRow />
-        <TableRow />
-        <TableRow />
-        <TableRow />
+        {tasks.map((task) => (
+          <TableRow key={task.title} />
+        ))}
       </tbody>
     </StyledTable>
   );

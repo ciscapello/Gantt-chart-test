@@ -14,10 +14,7 @@ export function sortObject(obj: Task) {
       o.sub?.map((elem) => {
         return getProp(elem);
       });
-    } else {
-      console.log("Finite value: ", objArr);
     }
   }
-  console.log(objArr);
   return objArr;
 }

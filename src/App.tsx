@@ -25,9 +25,11 @@ function App() {
 const Wrapper = styled.div`
   margin: 30px;
   overflow: hidden;
-  box-shadow: inset -3px 0 2px 0 lightgray;
+  /* box-shadow: inset -1px -5px 9px 0 black; */
+  box-shadow: inset -10px 0 10px -10px #000000;
   border-radius: 12px;
   border: 1px solid lightgray;
+  z-index: 3;
 `;
 
 const Title = styled.h1`

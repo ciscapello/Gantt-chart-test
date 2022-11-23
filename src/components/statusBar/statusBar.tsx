@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import styled from "styled-components";
 import { useAppSelector } from "../../hooks";
 import { Task } from "../../types";
-import { handleColorType } from "../../utils";
+import { handleColorType, dateHandler } from "../../utils";
 
 interface StatusBarProps {
   offset: number | undefined;
@@ -13,16 +13,12 @@ interface StatusBarProps {
 export default function StatusBar({ offset, height, task }: StatusBarProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { minDate } = useAppSelector((state) => state.tasks);
-  const startDateDiff = Math.abs(
-    new Date(task!.period_start).getTime() - new Date(minDate!).getTime()
-  );
-  const startDiffDays = Math.ceil(startDateDiff / (1000 * 3600 * 24));
 
-  const endDateDiff = Math.abs(
-    new Date(task!.period_end).getTime() -
-      new Date(task!.period_start).getTime()
+  const { startDiffDays, endDiffDays } = dateHandler(
+    task!.period_start,
+    task!.period_end,
+    minDate
   );
-  const endDiffDays = Math.ceil(endDateDiff / (1000 * 3600 * 24)) + 1;
 
   if (offset) offset = offset + 40;
   if (task && offset) offset = offset + 22 * startDiffDays;

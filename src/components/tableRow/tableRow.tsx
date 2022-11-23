@@ -14,7 +14,7 @@ export default function TableRow({ task }: TableRowProps) {
   const ref = useRef<HTMLTableDataCellElement>(null);
   let offset, height;
   if (ref.current?.clientHeight && ref.current.clientWidth) {
-    offset = ref.current!.clientWidth;
+    offset = ref.current!.clientWidth - 1;
     height = ref.current!.clientHeight;
   }
   return (

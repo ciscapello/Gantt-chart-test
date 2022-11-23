@@ -14,6 +14,11 @@ export default function TableHeader() {
   //   }
   // };
 
+  // const weekHandler = (day) => {
+  //   firstDay: Date;
+  //   day;
+  // };
+
   return (
     <thead>
       <tr>
@@ -23,6 +28,7 @@ export default function TableHeader() {
         {daysArray.map((day, index) => (
           <TableHeaderCell key={Number(day)} colSpan={7}>
             {new Date(day).getDay()}
+            {` `}
           </TableHeaderCell>
         ))}
       </tr>
@@ -57,4 +63,6 @@ const TableHeaderCell = styled.th<{
   line-height: 18px;
   text-align: ${(props) => (props.first ? "start" : "center")};
   padding-left: ${(props) => (props.first ? "20px" : "0")};
+  position: relative;
+  z-index: -999;
 `;

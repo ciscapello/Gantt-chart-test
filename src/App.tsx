@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Table from "./components/table/table";
+import { Table } from "./components/table";
 import styled from "styled-components";
 import { useAppDispatch, useAppSelector } from "./hooks";
 import { getTasks } from "./store";

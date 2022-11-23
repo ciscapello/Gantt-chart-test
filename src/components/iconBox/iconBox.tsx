@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import {
   Arrow,
@@ -20,10 +20,14 @@ interface IconBoxProps {
 export default function IconBox({ level, task }: IconBoxProps) {
   const dispatch = useAppDispatch();
   const [pressed, setPressed] = useState(false);
+  const { isShow } = task;
   const clickHandler = () => {
     setPressed((prev) => !prev);
     dispatch(showRow({ level, pressed }));
   };
+  useEffect(() => {
+    isShow ? setPressed(false) : setPressed(true);
+  }, [isShow]);
 
   const selectIcon = () => {
     switch (level) {

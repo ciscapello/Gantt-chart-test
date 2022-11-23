@@ -4,7 +4,15 @@ import { useAppSelector } from "../../hooks";
 
 export default function TableHeader() {
   const daysArray = useAppSelector((state) => state.tasks.dates);
-  const dayOfWeek = new Date(daysArray[0]).getDay();
+  // const dayOfWeek = new Date(daysArray[0]).getDay();
+
+  // const handleWeeks = (index, day) => {
+  //   if (index === 0) {
+  //     Number(new Date(day).getDay());
+  //   } else {
+  //     return 7;
+  //   }
+  // };
 
   return (
     <thead>
@@ -12,7 +20,7 @@ export default function TableHeader() {
         <TableHeaderCell rowSpan={2} first>
           Work Item
         </TableHeaderCell>
-        {daysArray.map((day) => (
+        {daysArray.map((day, index) => (
           <TableHeaderCell key={Number(day)} colSpan={7}>
             {new Date(day).getDay()}
           </TableHeaderCell>

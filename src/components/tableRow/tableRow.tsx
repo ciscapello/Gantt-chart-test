@@ -39,7 +39,7 @@ const StyledRow = styled.tr<{ task: Task | undefined }>`
 `;
 
 const TableCell = styled.td<{ first?: boolean; task?: Task }>`
-  height: ${({ task }) => (task?.isShow ? "40px" : "0")};
+  height: 40px;
   opacity: ${(props) => (props.task?.isShow ? "1" : "0")};
   transition: 0.2s;
   padding-left: ${(props) =>

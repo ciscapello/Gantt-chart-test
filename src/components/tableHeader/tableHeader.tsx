@@ -1,21 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import { useAppSelector } from "../../hooks";
 
 export default function TableHeader() {
-  const daysArray: Date[] = [];
-  const start = new Date("02/05/2020");
-  const end = new Date("03/28/2020");
-
-  for (const d = start; d <= end; d.setDate(d.getDate() + 1)) {
-    daysArray.push(new Date(d));
-  }
+  const daysArray = useAppSelector((state) => state.tasks.dates);
 
   return (
     <thead>
       <tr>
         <TableHeaderCell first>Work Item</TableHeaderCell>
         {daysArray.map((day) => (
-          <TableHeaderCell key={Number(day)}>{day.getDate()}</TableHeaderCell>
+          <TableHeaderCell key={Number(day)}>
+            {new Date(day).getDate()}
+          </TableHeaderCell>
         ))}
       </tr>
     </thead>
@@ -33,4 +30,10 @@ const TableHeaderCell = styled.th<{ first?: boolean }>`
   border-bottom-style: solid;
   box-sizing: border-box;
   height: 50px;
+  color: #6d6e85;
+  font-weight: ${(props) => (props.first ? "500" : "400")};
+  font-size: ${(props) => (props.first ? "14px" : "12px")};
+  line-height: 18px;
+  text-align: ${(props) => (props.first ? "start" : "center")};
+  padding-left: ${(props) => (props.first ? "20px" : "0")};
 `;

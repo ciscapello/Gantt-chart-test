@@ -4,4 +4,5 @@ export interface Task {
   period_start: string;
   period_end: string;
   sub?: Task[];
+  nestingLevel?: number;
 }

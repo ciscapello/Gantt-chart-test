@@ -11,6 +11,10 @@ export default function Table() {
       <TableHeader />
       <tbody>
         <TableRow />
+        {tasks.map((task) => (
+          <TableRow task={task} />
+        ))}
+        <TableRow />
         <TableRow />
         <TableRow />
         <TableRow />

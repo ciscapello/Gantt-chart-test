@@ -1,23 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import { useAppSelector } from "../../hooks";
+import { dateToStringArr, weekHandler } from "../../utils";
 
 export default function TableHeader() {
-  const daysArray = useAppSelector((state) => state.tasks.dates);
-  // const dayOfWeek = new Date(daysArray[0]).getDay();
+  const { dates: daysArray, minDate } = useAppSelector((state) => state.tasks);
+  console.log(
+    new Date(
+      new Date(daysArray[0]).setDate(new Date(daysArray[0]).getDate() + 7)
+    )
+  );
 
-  // const handleWeeks = (index, day) => {
-  //   if (index === 0) {
-  //     Number(new Date(day).getDay());
-  //   } else {
-  //     return 7;
-  //   }
-  // };
-
-  // const weekHandler = (day) => {
-  //   firstDay: Date;
-  //   day;
-  // };
+  const weekArr = weekHandler(new Date(minDate!));
+  console.log(weekArr);
+  const weeks = dateToStringArr(weekArr);
+  console.log("weeks", weeks);
 
   return (
     <thead>
@@ -25,10 +22,9 @@ export default function TableHeader() {
         <TableHeaderCell rowSpan={2} first>
           Work Item
         </TableHeaderCell>
-        {daysArray.map((day, index) => (
-          <TableHeaderCell key={Number(day)} colSpan={7}>
-            {new Date(day).getDay()}
-            {` `}
+        {weeks.map((week, index, arr) => (
+          <TableHeaderCell key={Math.random()} colSpan={7}>
+            {`${week.startWeek} - ${week.endWeek}`}
           </TableHeaderCell>
         ))}
       </tr>
@@ -56,7 +52,7 @@ const TableHeaderCell = styled.th<{
   border-bottom-color: #bbbbbb;
   border-bottom-style: solid;
   box-sizing: border-box;
-  height: 25px;
+  max-height: 25px;
   color: ${({ day }) => (day === 6 || day === 0 ? "#A9A9B8" : "#6d6e85")};
   font-weight: ${(props) => (props.first ? "500" : "400")};
   font-size: ${(props) => (props.first ? "14px" : "12px")};

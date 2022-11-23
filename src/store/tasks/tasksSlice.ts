@@ -1,6 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Task } from "../../types";
-import { getObjects } from "../../utils/mapObj";
+import { sortObject } from "../../utils";
 import { getTasks } from "./actions";
 
 interface InitialState {
@@ -39,12 +39,21 @@ export const tasksSlice = createSlice({
       }
       state.dates = daysArray;
     },
+    showRow: (
+      state,
+      action: PayloadAction<{ level: number | undefined; pressed: boolean }>
+    ) => {
+      const { level, pressed } = action.payload;
+      state.tasks.forEach((elem) => {
+        return elem.nestingLevel! > level! ? (elem.isShow = pressed) : null;
+      });
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getTasks.fulfilled, (state, action) => {
       const { chart } = action.payload;
       console.log(state.tasks);
-      state.tasks = getObjects(chart);
+      state.tasks = sortObject(chart);
       const minDate = chart.period_start;
       state.minDate = new Date(minDate).setDate(1);
       console.log(action.payload);
@@ -53,6 +62,6 @@ export const tasksSlice = createSlice({
   },
 });
 
-export const { getDates } = tasksSlice.actions;
+export const { getDates, showRow } = tasksSlice.actions;
 
 export default tasksSlice.reducer;

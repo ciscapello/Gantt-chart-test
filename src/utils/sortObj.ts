@@ -1,12 +1,13 @@
 import { Task } from "../types";
 
-export function getObjects(obj: Task) {
+export function sortObject(obj: Task) {
   const objArr: Task[] = [];
   let levelIndex = 1;
   getProp(obj);
 
   function getProp(o: Task) {
     o.nestingLevel = levelIndex;
+    o.isShow = true;
     objArr.push(o);
     if (o.hasOwnProperty("sub")) {
       levelIndex++;

@@ -1,2 +1,2 @@
 export * from "./handleColorType";
-export * from "./mapObj";
+export * from "./sortObj";

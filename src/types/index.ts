@@ -5,4 +5,5 @@ export interface Task {
   period_end: string;
   sub?: Task[];
   nestingLevel?: number;
+  isShow?: boolean;
 }

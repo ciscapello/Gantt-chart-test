@@ -28,24 +28,27 @@ export default function StatusBar({ offset, height, task }: StatusBarProps) {
   if (task && offset) offset = offset + 22 * startDiffDays;
 
   return (
-    <Wrapper ref={ref} height={height} offset={offset}>
+    <Wrapper ref={ref} height={height} task={task} offset={offset}>
       <Bar endDiffDays={endDiffDays} task={task} />
       <Title>{task?.title}</Title>
     </Wrapper>
   );
 }
 
-const Wrapper = styled.div<{
+const Wrapper = styled.span<{
   offset: number | undefined;
   height: number | undefined;
+  task: Task | undefined;
 }>`
-  align-items: center;
   display: flex;
+  align-items: center;
   position: absolute;
   left: ${(props) => props.offset}px;
+  transition: 0.3s;
+  opacity: ${(props) => (props.task?.isShow ? "1" : "0")};
 `;
 
-const Bar = styled.div<{ endDiffDays: number; task: Task | undefined }>`
+const Bar = styled.span<{ endDiffDays: number; task: Task | undefined }>`
   background-color: #a30303;
   width: ${(props) => props.endDiffDays * 22}px;
   height: 24px;

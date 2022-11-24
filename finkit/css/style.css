@@ -19,15 +19,15 @@ html * {
   height: 700px;
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-  only screen and (min--moz-device-pixel-ratio: 1.5),
-  only screen and (-o-min-device-pixel-ratio: 3/2),
-  only screen and (min-resolution: 1.5dppx),
-  only screen and (min-width: 450px),
-  only screen and (min-resolution: 144dpi) {
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  .retina {
+    display: block !important;
+  }
+  .usual {
+    display: none !important;
+  }
   .main {
     background: 90% / 50% no-repeat url("../img/phone@2x.png"), #cbecff;
-    /* background-image: url("../img/phone@2x.png"); */
   }
 }
 
@@ -40,6 +40,14 @@ html * {
   .main {
     background-image: url("../img/phone@1x.png");
   }
+}
+
+.retina {
+  display: none;
+}
+
+.usual {
+  display: block;
 }
 
 .lang_menu {
